@@ -6,6 +6,7 @@ $ pip install google-generativeai
 
 import google.generativeai as genai
 
+
 genai.configure(api_key="AIzaSyAHU0QFwMjfzBeFCdsKal2ML3Phm5nsa98")
 
 # Set up the model
@@ -42,6 +43,15 @@ model = genai.GenerativeModel(model_name="gemini-1.0-pro",
 convo = model.start_chat(history=[
 ])
 
+f = open("PythonFiles/answers.txt", "a")
+
+
 message = 'You are a character in a game and the player has just walked up to you. Say something completely out of pocket and confusing. Keep it to 1 or 2 sentences. Featuring absurd humor with a hint of social commentary. Use puns, wordplay, and pop-culture references. Aim for a lighthearted and humorous tone while injecting a touch of satire or critique of societal norms or bureaucracy. Dont use the word "bureaucracy". Dont be afraid to make something a bit uncanny but dont overdo it'
 convo.send_message(message)
+
+f.write(convo.last.text)
+f.write("\n\n")
+
+f.close()
+
 print(convo.last.text)
