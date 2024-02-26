@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c30ypc5rik5lx"]
+
+[ext_resource type="PackedScene" uid="uid://bnwuq4e4iqb2r" path="res://player.tscn" id="1_bck3s"]
+[ext_resource type="PackedScene" uid="uid://dpy1xixp357ol" path="res://ai_controller.tscn" id="2_efk0n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v5ey8"]
+size = Vector2(511, 20)
+
+[node name="World" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_bck3s")]
+position = Vector2(264, 83)
+
+[node name="AIController" parent="." instance=ExtResource("2_efk0n")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(248, 170)
+shape = SubResource("RectangleShape2D_v5ey8")

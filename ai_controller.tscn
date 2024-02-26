@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpy1xixp357ol"]
+
+[ext_resource type="Script" path="res://AiController.gd" id="1_knxqr"]
+
+[node name="AIController" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_knxqr")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 407.0
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+tab_size = 2
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="@Timer@39898" type="Timer" parent="HTTPRequest"]
+one_shot = true
+
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]

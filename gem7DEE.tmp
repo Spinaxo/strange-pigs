@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://bccxklr0vr1il"]
+
+[ext_resource type="Script" path="res://AiController.gd" id="1_jh110"]
+
+[node name="GeminiTest" type="Node2D"]
+
+[node name="AIController" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_jh110")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AIController"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HTTPRequest" type="HTTPRequest" parent="AIController"]
+
+[connection signal="request_completed" from="AIController/HTTPRequest" to="AIController" method="_on_http_request_request_completed"]
